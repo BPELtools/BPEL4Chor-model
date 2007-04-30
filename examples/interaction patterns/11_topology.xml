@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ///////////////////////////////////////////////////////////////////////////////////////////// 
+  // Authors:  Gero Decker, Oliver Kopp
+  // Created: 6 Dec 2006
+  // Last modified: $Date: 2007-04-30 17:35:22 +0200 (Mo, 30 Apr 2007) $
+  // Purpose: Topology for the request with referral pattern
+  ///////////////////////////////////////////////////////////////////////////////////////////// 
+-->
+<topology name="P11_topology" 
+    targetNamespace="http://example.com/service-interaction-patterns/11"
+    xmlns="urn:HPI_IAAS:choreography:schemas:choreography:topology:2006/12"
+    xmlns:chordef="http://example.com/service-interaction-patterns/11"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="urn:HPI_IAAS:choreography:schemas:choreography:topology:2006/12 http://www.iaas.uni-stuttgart.de/schemas/bpel4chor/topology.xsd">
+
+  <participantTypes>
+    <participantType name="A" participantBehaviorDescription="chordef:A" />
+    <participantType name="B" participantBehaviorDescription="chordef:B" />
+    <participantType name="C" participantBehaviorDescription="chordef:C" />
+  </participantTypes>
+
+  <participants>
+    <participant name="a" type="A" selects="b p" />
+    <participant name="b" type="B" />
+    <participantSet name="p" type="P" forEach="fe1">
+      <participant name="pi" forEach="fe1" />
+    </participantSet>
+  </participants>
+
+  <messageLinks>
+    <messageLink sender="a" sendActivity="sendMsg1" receiver="b" receiveActivity="receiveMsg1" messageName="msg1" participantRefs="p" />
+    <messageLink sender="b" sendActivity="sendMsg2" receiver="pi" receiveActivity="receiveMsg2" messageName="msg2" />
+  </messageLinks>
+
+</topology>

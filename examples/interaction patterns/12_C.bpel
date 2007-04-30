@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ///////////////////////////////////////////////////////////////////////////////////////////// 
+  // Authors:  Gero Decker, Oliver Kopp
+  // Created: 6 Dec 2006
+  // Last modified: $Date: 2007-01-03 03:52:32 +0100 (Mi, 03 Jan 2007) $
+  // Purpose: Behavioral interface for participant type Client in the relayed request pattern
+  ///////////////////////////////////////////////////////////////////////////////////////////// 
+-->
+<process name="C"
+    targetNamespace="http://example.com/service-interaction-patterns/12"
+    xmlns="http://docs.oasis-open.org/wsbpel/2.0/process/abstract"
+    abstractProcessProfile="urn:HPI_IAAS:choreography:profile:2006/12"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:npb="urn:HPI_IAAS:bpel-extensions:namedPickBranch:2006/12"
+	xsi:schemaLocation="http://docs.oasis-open.org/wsbpel/2.0/process/abstract
+    					http://docs.oasis-open.org/wsbpel/2.0/process/abstract/ws-bpel_abstract_common_base.xsd
+    					urn:HPI_IAAS:bpel-extensions:namedPickBranch:2006/12
+    					http://www.iaas.uni-stuttgart.de/schemas/bpel4chor/namedPickBranch.xsd">
+
+  <sequence>
+    <invoke name="sendRequest" />
+    <while>
+      <condition opaque="yes" />
+      <pick>
+        <onMessage npb:name="receiveResponse" >
+          <empty />
+        </onMessage>
+        <onAlarm>
+          <for>1d</for>
+          <empty />
+        </onAlarm>
+      </pick>
+    </while>
+  </sequence>
+
+</process>

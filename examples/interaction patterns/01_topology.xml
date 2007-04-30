@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ///////////////////////////////////////////////////////////////////////////////////////////// 
+  // Authors:  Gero Decker
+  // Created: 6 Dec 2006
+  // Last modified: $Date: 2007-04-30 17:35:22 +0200 (Mo, 30 Apr 2007) $
+  // Purpose: Topology for the send pattern
+  ///////////////////////////////////////////////////////////////////////////////////////////// 
+-->
+<topology name="P01_topology" 
+    targetNamespace="http://example.com/service-interaction-patterns/01"
+    xmlns="urn:HPI_IAAS:choreography:schemas:choreography:topology:2006/12"
+    xmlns:chordef="http://example.com/service-interaction-patterns/01"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="urn:HPI_IAAS:choreography:schemas:choreography:topology:2006/12 http://www.iaas.uni-stuttgart.de/schemas/bpel4chor/topology.xsd">
+
+  <participantTypes>
+    <participantType name="Sender" participantBehaviorDescription="chordef:A" processLanguage="urn:HPI_IAAS:choreography:profile:2006/12" />
+    <participantType name="Receiver" participantBehaviorDescription="chordef:B" processLanguage="urn:HPI_IAAS:choreography:profile:2006/12" />
+  </participantTypes>
+
+  <participants>
+    <participant name="s" type="Sender" />
+    <participant name="r" type="Receiver" />
+  </participants>
+
+  <messageLinks>
+    <messageLink sender="s" sendActivity="sendDocument" receiver="r" receiveActivity="receiveDocument" messageName="document" />
+  </messageLinks>
+
+</topology>

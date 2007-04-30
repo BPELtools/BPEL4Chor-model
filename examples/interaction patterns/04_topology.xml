@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ///////////////////////////////////////////////////////////////////////////////////////////// 
+  // Authors:  Gero Decker, Oliver Kopp
+  // Created: 6 Dec 2006
+  // Last modified: $Date: 2007-04-30 17:35:22 +0200 (Mo, 30 Apr 2007) $
+  // Purpose: Topology for the racing incoming messages pattern
+  ///////////////////////////////////////////////////////////////////////////////////////////// 
+-->
+<topology name="P04_topology" 
+    targetNamespace="http://example.com/service-interaction-patterns/04"
+    xmlns="urn:HPI_IAAS:choreography:schemas:choreography:topology:2006/12"
+    xmlns:chordef="http://example.com/service-interaction-patterns/04"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="urn:HPI_IAAS:choreography:schemas:choreography:topology:2006/12 http://www.iaas.uni-stuttgart.de/schemas/bpel4chor/topology.xsd">
+
+  <participantTypes>
+    <participantType name="Receiver" participantBehaviorDescription="chordef:A" />
+    <participantType name="Sender" participantBehaviorDescription="chordef:B" />
+  </participantTypes>
+
+  <participants>
+    <participant name="a" type="Receiver" />
+    <participantSet name="senders" type="Sender" />
+    <participant name="b" type="Sender" />
+  </participants>
+
+  <messageLinks>
+    <messageLink senders="senders" sendActivities="sendDocumentX" bindSenderTo="b" receiver="a" receiveActivity="receiveDocumentX" messageName="documentX" />
+    <messageLink senders="senders" sendActivities="sendDocumentY" bindSenderTo="b" receiver="a" receiveActivity="receiveDocumentY" messageName="documentY" />
+  </messageLinks>
+
+</topology>

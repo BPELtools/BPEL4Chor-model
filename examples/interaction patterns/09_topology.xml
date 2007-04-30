@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ///////////////////////////////////////////////////////////////////////////////////////////// 
+  // Authors:  Gero Decker, Oliver Kopp
+  // Created: 6 Dec 2006
+  // Last modified: $Date: 2007-04-30 17:35:22 +0200 (Mo, 30 Apr 2007) $
+  // Purpose: Topology for the contingent requests pattern
+  ///////////////////////////////////////////////////////////////////////////////////////////// 
+-->
+<topology name="P09_servicetopology" 
+    targetNamespace="http://example.com/service-interaction-patterns/09"
+    xmlns="urn:HPI_IAAS:choreography:schemas:choreography:topology:2006/12"
+    xmlns:chordef="http://example.com/service-interaction-patterns/09"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="urn:HPI_IAAS:choreography:schemas:choreography:topology:2006/12 http://www.iaas.uni-stuttgart.de/schemas/bpel4chor/topology.xsd">
+
+  <participantTypes>
+    <participantType name="Requestor" participantBehaviorDescription="chordef:A" />
+    <participantType name="Responder" participantBehaviorDescription="chordef:B" />
+  </participantTypes>
+
+  <participants>
+    <participant name="a" type="Requestor" />
+    <participantSet name="responders" type="Responder" forEach="chordef:fe1" >
+      <participant name="currentR" type="Responder" forEach="chordef:fe1" />
+    </participantSet>
+    <participant name="r" type="Responder" containment="required" />
+  </participants>
+
+  <messageLinks>
+    <messageLink sender="a" sendActivity="sendRequest" receiver="currentR" receiveActivity="receiveRequest" messageName="request" />
+    <messageLink sender="r" sendActivity="sendResponse" receiver="a" receiveActivity="receiveResponse" messageName="response" />
+  </messageLinks>
+
+</topology>
