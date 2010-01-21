@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	///////////////////////////////////////////////////////////////////////////////////////////// 
+	// Initial authors: Gero Decker and Oliver Kopp
+	// Created: 6 Dec 2006
+	// Purpose: Schema definition for .grounding-files
+	///////////////////////////////////////////////////////////////////////////////////////////// 
+-->
+<xs:schema
+	xmlns="urn:HPI_IAAS:choreography:schemas:choreography:grounding:2006/12"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:topology="urn:HPI_IAAS:choreography:schemas:choreography:topology:2006/12"
+	targetNamespace="urn:HPI_IAAS:choreography:schemas:choreography:grounding:2006/12"
+	elementFormDefault="qualified" blockDefault="#all">
+	<xs:annotation>
+		<xs:documentation>
+			Schema for grounding topologies defined using BPEL4chor
+		</xs:documentation>
+	</xs:annotation>
+	<xs:import namespace="http://www.w3.org/XML/1998/namespace"
+		schemaLocation="http://www.w3.org/2001/xml.xsd" />
+	<xs:import namespace="urn:HPI_IAAS:choreography:schemas:choreography:topology:2006/12"
+		schemaLocation="topology.xsd" />
+	
+	<xs:element name="grounding" type="tGrounding" />
+	<xs:complexType name="tGrounding">
+		<xs:sequence>
+			<xs:element ref="messageLinks" minOccurs="1" maxOccurs="1" />
+			<xs:element ref="participantRefs" minOccurs="0" maxOccurs="1" />
+			<xs:element ref="properties" minOccurs="0" maxOccurs="1" />
+		</xs:sequence>
+		<xs:attribute name="topology" type="xs:QName" />
+	</xs:complexType>
+	
+	<xs:element name="messageLinks" type="tMessageLinks"></xs:element>
+	<xs:complexType name="tMessageLinks">
+		<xs:sequence>
+			<xs:element ref="messageLink" maxOccurs="unbounded" minOccurs="1" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:element name="participantRefs" type="tParticipantRefs"></xs:element>
+	<xs:complexType name="tParticipantRefs">
+		<xs:sequence>
+			<xs:element ref="participantRef" maxOccurs="unbounded" minOccurs="1" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:element name="properties" type="tProperties"></xs:element>
+	<xs:complexType name="tProperties">
+		<xs:sequence>
+			<xs:element ref="property" maxOccurs="unbounded" minOccurs="1" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:element name="messageLink" type="tMessageLink"></xs:element>
+	<xs:complexType name="tMessageLink">
+		<xs:attribute name="name" type="xs:QName" use="required" />
+
+		<xs:attribute name="portType" type="xs:QName" use="optional" />
+		<xs:attribute name="operation" type="xs:NCName" use="optional" />
+		
+		<xs:attribute name="senders" type="topology:QNames" use="optional" />
+		<xs:attribute name="expectedPortType" type="xs:QName" use="optional" />
+		<xs:attribute name="expectedOperation" type="xs:NCName" use="optional" />
+		<xs:attribute name="mediator" type="xs:anyURI" use="optional" />
+		<xs:attribute name="offeredPortType" type="xs:QName" use="optional" />
+		<xs:attribute name="offeredOperation" type="xs:NCName" use="optional" />
+	</xs:complexType>
+	
+	<xs:element name="participantRef" type="tParticipantRef"></xs:element>
+	<xs:complexType name="tParticipantRef">
+		<xs:attribute name="name" type="xs:NCName" use="required" />
+		<xs:attribute name="WSDLproperty" type="xs:QName" use="required" />
+    </xs:complexType>	
+		
+	<xs:element name="property" type="tProperty"></xs:element>
+	<xs:complexType name="tProperty">
+		<xs:attribute name="name" type="xs:NCName" use="required" />
+		<xs:attribute name="WSDLproperty" type="xs:QName" use="required" />
+    </xs:complexType>	
+		
+</xs:schema>

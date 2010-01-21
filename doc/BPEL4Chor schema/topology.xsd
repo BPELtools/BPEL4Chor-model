@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	///////////////////////////////////////////////////////////////////////////////////////////// 
+	// Initial authors: Gero Decker and Oliver Kopp
+	// Created: 6 Dec 2006
+	// Purpose: Schema definition for .chor-files
+	///////////////////////////////////////////////////////////////////////////////////////////// 
+-->
+<xs:schema
+	xmlns="urn:HPI_IAAS:choreography:schemas:choreography:topology:2006/12"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="urn:HPI_IAAS:choreography:schemas:choreography:topology:2006/12"
+	elementFormDefault="qualified" blockDefault="#all">
+	<xs:annotation>
+		<xs:documentation>
+			Schema for service topology definition
+		</xs:documentation>
+	</xs:annotation>
+	<xs:import namespace="http://www.w3.org/XML/1998/namespace"
+		schemaLocation="http://www.w3.org/2001/xml.xsd" />
+
+	<xs:simpleType name="QNames">
+		<xs:annotation>
+			<xs:documentation>
+				Taken from WS-BPEL 2.0-spec, since this definition is
+				not contained in XML Schema
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction>
+			<xs:simpleType>
+				<xs:list itemType="xs:QName" />
+			</xs:simpleType>
+			<xs:minLength value="1" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="NCNames">
+		<xs:annotation>
+			<xs:documentation>
+				Newly created, since this definition is
+				not contained in XML Schema
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction>
+			<xs:simpleType>
+				<xs:list itemType="xs:NCName" />
+			</xs:simpleType>
+			<xs:minLength value="1" />
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:element name="topology" type="tTopology" />
+	<xs:complexType name="tTopology">
+		<xs:sequence>
+			<xs:element ref="participantTypes" minOccurs="1"
+				maxOccurs="1" />
+			<xs:element ref="participants" minOccurs="1" maxOccurs="1" />
+			<xs:element ref="messageLinks" minOccurs="1" maxOccurs="1" />
+		</xs:sequence>
+		<xs:attribute name="name" type="xs:NCName" use="required" />
+		<xs:attribute name="targetNamespace" type="xs:anyURI" use="required" />
+	</xs:complexType>
+
+	<xs:element name="participantTypes" type="tParticipantTypes" />
+	<xs:complexType name="tParticipantTypes">
+		<xs:sequence>
+			<xs:element ref="participantType" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:element name="participantType" type="tParticipantType" />
+	<xs:complexType name="tParticipantType">
+		<xs:attribute name="name" type="xs:NCName" use="required" />
+		<xs:attribute name="participantBehaviorDescription" type="xs:QName" use="required" /> 
+		<xs:attribute name="processLanguage" type="xs:anyURI" use="optional" default="urn:HPI_IAAS:choreography:profile:2006/12" /> 
+	</xs:complexType>
+
+	<xs:element name="participants" type="tParticipants" />
+	<xs:complexType name="tParticipants">
+		<xs:sequence>
+			<xs:choice maxOccurs="unbounded" minOccurs="1">
+				<xs:element ref="participant" maxOccurs="unbounded" />
+				<xs:element ref="participantSet" maxOccurs="unbounded"
+					minOccurs="0" />
+			</xs:choice>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:element name="participant" type="tParticipant" />
+	<xs:complexType name="tParticipant">
+		<xs:attribute name="name" type="xs:NCName" use="required" />
+		<xs:attribute name="type" type="xs:NCName" use="optional" /> <!-- required if not nested in participantTypes -->
+		<xs:attribute name="selects" type="NCNames" />
+		<xs:attribute name="forEach" type="xs:QName" />
+		<xs:attribute name="scope" type="xs:QName" />
+		<xs:attribute name="containment" use="optional" default="add-if-not-exists">
+			<xs:simpleType>
+				<xs:restriction base="xs:string">
+					<xs:enumeration value="required" />
+					<xs:enumeration value="must-add" />
+					<xs:enumeration value="add-if-not-exists" />
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:complexType>
+
+	<xs:element name="participantSet" type="tParticipantSet" />
+	<xs:complexType name="tParticipantSet">
+		<xs:sequence>
+			<xs:choice>
+				<xs:element ref="participant" maxOccurs="unbounded" minOccurs="0"/>
+				<xs:element ref="participantSet" maxOccurs="unbounded" minOccurs="0"/>
+			</xs:choice>
+		</xs:sequence>
+		<xs:attribute name="name" type="xs:NCName" use="required" />
+		<xs:attribute name="type" type="xs:NCName" />
+		<xs:attribute name="forEach" type="QNames" />
+		<xs:attribute name="scope" type="xs:QName" />
+	</xs:complexType>
+
+	<xs:element name="messageLinks" type="tMessageLinks"></xs:element>
+	<xs:complexType name="tMessageLinks">
+		<xs:sequence>
+    	<xs:element ref="messageLink" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:element name="messageLink" type="tMessageLink"></xs:element>
+	<xs:complexType name="tMessageLink">
+		<xs:attribute name="name" type="xs:NCName" />
+
+		<xs:attribute name="sender" type="xs:NCName" />
+		<xs:attribute name="senders" type="NCNames" />
+		<xs:attribute name="sendActivity" type="NCNames" />
+
+		<xs:attribute name="bindSenderTo" type="xs:NCName" />
+
+		<xs:attribute name="receiver" type="xs:NCName" use="required" />
+		<xs:attribute name="receiveActivity" type="xs:NCName" />
+
+		<xs:attribute name="messageName" type="xs:NCName" use="required" />
+		
+		<xs:attribute name="participantRefs" type="NCNames" />		
+		<xs:attribute name="copyParticipantRefsTo" type="NCNames" />
+	</xs:complexType>
+
+</xs:schema>

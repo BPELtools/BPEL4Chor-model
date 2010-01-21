@@ -1,0 +1,24 @@
+<!--
+	///////////////////////////////////////////////////////////////////////////////////////////// 
+	// Initial authors: Gero Decker and Oliver Kopp
+	// Created: 6 Dec 2006
+	// Purpose: Syntax definition for .grounding-files
+	///////////////////////////////////////////////////////////////////////////// 
+-->
+
+<grounding topology="QName">
+  <messageLinks>
+    <messageLink name="NCName"
+      ((portType="QName" operation="NCName")
+      |(senders="NCNames"? expectedPortType="QName" expectedOperation="NCName"
+        offeredPortType="QName" offeredOperation="NCName"
+        mediator="anyURI"))
+    />*
+  </messageLinks>
+  <participantRefs>
+    <participantRef name="NCName" WSDLproperty="QName" />+
+  </participantRefs>?
+  <properties>
+    <property name="NCName" WSDLproperty="QName" />+
+  </properties>?
+ </grounding>
