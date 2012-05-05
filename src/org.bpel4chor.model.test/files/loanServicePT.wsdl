@@ -1,0 +1,150 @@
+<wsdl:definitions
+
+   targetNamespace="http://example.com/loan-approval/wsdl/"
+
+   xmlns:ens="http://example.com/loan-approval/xsd/error-messages/"
+
+   xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype"
+
+   xmlns:tns="http://example.com/loan-approval/wsdl/"
+
+   xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+
+   xmlns:xsd="http://www.w3.org/2001/XMLSchema/">
+
+ 
+
+   <wsdl:types>
+
+      <xsd:schema>
+
+         <!-- import schemas -->
+
+      </xsd:schema>
+
+   </wsdl:types>
+
+ 
+
+   <wsdl:message name="creditInformationMessage">
+
+      <wsdl:part name="firstName" type="xsd:string" />
+
+      <wsdl:part name="name" type="xsd:string" />
+
+      <wsdl:part name="amount" type="xsd:integer" />
+
+   </wsdl:message>
+
+ 
+
+   <wsdl:message name="approvalMessage">
+
+      <wsdl:part name="accept" type="xsd:string" />
+
+   </wsdl:message>
+
+ 
+
+   <wsdl:message name="riskAssessmentMessage">
+
+      <wsdl:part name="level" type="xsd:string" />
+
+   </wsdl:message>
+
+ 
+
+   <wsdl:message name="errorMessage">
+
+      <wsdl:part name="errorCode" element="ens:integer" />
+
+   </wsdl:message>
+
+ 
+
+   <wsdl:portType name="loanServicePT">
+
+      <wsdl:operation name="request">
+
+         <wsdl:input message="tns:creditInformationMessage" />
+
+         <wsdl:output message="tns:approvalMessage" />
+
+         <wsdl:fault name="unableToHandleRequest"
+
+            message="tns:errorMessage" />
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+ 
+
+   <wsdl:portType name="riskAssessmentPT">
+
+      <wsdl:operation name="check">
+
+         <wsdl:input message="tns:creditInformationMessage" />
+
+         <wsdl:output message="tns:riskAssessmentMessage" />
+
+         <wsdl:fault name="loanProcessFault"
+
+            message="tns:errorMessage" />
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+ 
+
+   <wsdl:portType name="loanApprovalPT">
+
+      <wsdl:operation name="approve">
+
+         <wsdl:input message="tns:creditInformationMessage" />
+
+         <wsdl:output message="tns:approvalMessage" />
+
+         <wsdl:fault name="loanProcessFault"
+
+            message="tns:errorMessage" />
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+ 
+
+   <plnk:partnerLinkType name="loanPartnerLT">
+
+      <plnk:role name="loanService" portType="tns:loanServicePT" />
+
+ 
+
+   </plnk:partnerLinkType>
+
+ 
+
+   <plnk:partnerLinkType name="loanApprovalLT">
+
+      <plnk:role name="approver" portType="tns:loanApprovalPT" />
+
+ 
+
+   </plnk:partnerLinkType>
+
+ 
+
+   <plnk:partnerLinkType name="riskAssessmentLT">
+
+      <plnk:role name="assessor" portType="tns:riskAssessmentPT" />
+
+ 
+
+   </plnk:partnerLinkType>
+
+ 
+
+</wsdl:definitions>
+

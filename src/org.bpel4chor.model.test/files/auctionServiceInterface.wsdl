@@ -1,0 +1,266 @@
+<wsdl:definitions
+
+   targetNamespace="http://example.com/auction/wsdl/auctionService/"
+
+   xmlns:bpel="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+
+   xmlns:vprop="http://docs.oasis-open.org/wsbpel/2.0/varprop"
+
+   xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype"
+
+   xmlns:sref="http://docs.oasis-open.org/wsbpel/2.0/serviceref"
+
+   xmlns:tns="http://example.com/auction/wsdl/auctionService/"
+
+   xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+
+   xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+ 
+
+   <!-- Messages for communication with the seller -->
+
+ 
+
+   <wsdl:message name="sellerData">
+
+      <wsdl:part name="creditCardNumber" type="xsd:string" />
+
+      <wsdl:part name="shippingCosts" type="xsd:integer" />
+
+      <wsdl:part name="auctionId" type="xsd:integer" />
+
+      <wsdl:part name="endpointReference" type="sref:ServiceRefType" />
+
+   </wsdl:message>
+
+ 
+
+   <wsdl:message name="sellerAnswerData">
+
+      <wsdl:part name="thankYouText" type="xsd:string" />
+
+   </wsdl:message>
+
+ 
+
+   <!-- Messages for communication with the buyer -->
+
+ 
+
+   <wsdl:message name="buyerData">
+
+      <wsdl:part name="creditCardNumber" type="xsd:string" />
+
+      <wsdl:part name="phoneNumber" type="xsd:string" />
+
+      <wsdl:part name="ID" type="xsd:integer" />
+
+      <wsdl:part name="endpointReference" type="sref:ServiceRefType" />
+
+   </wsdl:message>
+
+ 
+
+   <wsdl:message name="buyerAnswerData">
+
+      <wsdl:part name="thankYouText" type="xsd:string" />
+
+   </wsdl:message>
+
+ 
+
+   <!-- Messages for communication with the 
+
+        auction registration service -->
+
+ 
+
+   <wsdl:message name="auctionData">
+
+      <wsdl:part name="auctionId" type="xsd:integer" />
+
+      <wsdl:part name="amount" type="xsd:integer" />
+
+      <wsdl:part name="auctionHouseEndpointReference"
+
+         type="sref:ServiceRefType" />
+
+   </wsdl:message>
+
+ 
+
+   <wsdl:message name="auctionAnswerData">
+
+      <wsdl:part name="registrationId" type="xsd:integer" />
+
+      <wsdl:part name="auctionId" type="xsd:integer" />
+
+   </wsdl:message>
+
+ 
+
+   <!-- PortTypes for interacting with the seller -->
+
+ 
+
+   <wsdl:portType name="sellerPT">
+
+      <wsdl:operation name="submit">
+
+         <wsdl:input message="tns:sellerData" />
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+ 
+
+   <wsdl:portType name="sellerAnswerPT">
+
+      <wsdl:operation name="answer">
+
+         <wsdl:input message="tns:sellerAnswerData" />
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+ 
+
+   <!-- PortTypes for interacting with the buyer -->
+
+ 
+
+   <wsdl:portType name="buyerPT">
+
+      <wsdl:operation name="submit">
+
+         <wsdl:input message="tns:buyerData" />
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+ 
+
+   <wsdl:portType name="buyerAnswerPT">
+
+      <wsdl:operation name="answer">
+
+         <wsdl:input message="tns:buyerAnswerData" />
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+ 
+
+   <!-- PortTypes for interacting with the 
+
+        auction registration service -->
+
+ 
+
+   <wsdl:portType name="auctionRegistrationPT">
+
+      <wsdl:operation name="process">
+
+         <wsdl:input message="tns:auctionData" />
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+ 
+
+   <wsdl:portType name="auctionRegistrationAnswerPT">
+
+      <wsdl:operation name="answer">
+
+         <wsdl:input message="tns:auctionAnswerData" />
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+ 
+
+   <!-- Context type used for locating business process 
+
+        via auction Id -->
+
+ 
+
+   <vprop:property name="auctionId" type="xsd:integer" />
+
+   <vprop:propertyAlias propertyName="tns:auctionId"
+
+      messageType="tns:sellerData" part="auctionId" />
+
+   <vprop:propertyAlias propertyName="tns:auctionId"
+
+      messageType="tns:buyerData" part="ID" />
+
+   <vprop:propertyAlias propertyName="tns:auctionId"
+
+      messageType="tns:auctionData" part="auctionId" />
+
+   <vprop:propertyAlias propertyName="tns:auctionId"
+
+      messageType="tns:auctionAnswerData" part="auctionId" />
+
+ 
+
+   <!-- PartnerLinkType for seller/auctionHouse -->
+
+ 
+
+   <plnk:partnerLinkType name="sellerAuctionHouseLT">
+
+      <plnk:role name="auctionHouse" portType="tns:sellerPT" />
+
+      <plnk:role name="seller" portType="tns:sellerAnswerPT" />
+
+   </plnk:partnerLinkType>
+
+ 
+
+   <!-- PartnerLinkType for buyer/auctionHouse -->
+
+ 
+
+   <plnk:partnerLinkType name="buyerAuctionHouseLT">
+
+      <plnk:role name="auctionHouse" portType="tns:buyerPT" />
+
+      <plnk:role name="buyer" portType="tns:buyerAnswerPT" />
+
+   </plnk:partnerLinkType>
+
+ 
+
+   <!-- Partner link type for auction house/auction
+
+      registration service -->
+
+ 
+
+   <plnk:partnerLinkType
+
+      name="auctionHouseAuctionRegistrationServiceLT">
+
+      <plnk:role name="auctionRegistrationService"
+
+         portType="tns:auctionRegistrationPT" />
+
+      <plnk:role name="auctionHouse"
+
+         portType="tns:auctionRegistrationAnswerPT" />
+
+   </plnk:partnerLinkType>
+
+ 
+
+</wsdl:definitions>
+

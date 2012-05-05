@@ -1,0 +1,144 @@
+<wsdl:definitions
+
+   targetNamespace="http://example.com/ordering/interfaces/"
+
+   xmlns:order="http://example.com/ordering/order.xsd"
+
+   xmlns:tns="http://example.com/ordering/interfaces/"
+
+   xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+
+   xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+ 
+
+   <wsdl:types>
+
+      <xsd:schema>
+
+         <!-- import ordering schema -->
+
+      </xsd:schema>
+
+   </wsdl:types>
+
+ 
+
+   <wsdl:message name="OrderMessageType">
+
+      <wsdl:part name="OrderMessagePart" element="order:OrderMessage"/>
+
+   </wsdl:message>
+
+ 
+
+   <wsdl:message name="OrderAckMessageType">
+
+      <wsdl:part name="OrderAckMessagePart"
+
+         element="order:OrderAckMessage" />
+
+   </wsdl:message>
+
+ 
+
+   <wsdl:message name="ShipRequestMessageType">
+
+      <wsdl:part name="ShipRequestMessagePart"
+
+         element="order:ShipRequestMessage" />
+
+   </wsdl:message>
+
+ 
+
+   <wsdl:message name="ShipNoticeMessageType">
+
+      <wsdl:part name="ShipNoticeMessagePart"
+
+         element="order:ShipNoticeMessage" />
+
+   </wsdl:message>
+
+ 
+
+   <wsdl:message name="ShipHistoryMessageType">
+
+      <wsdl:part name="ShipHistoryMessagePart"
+
+         element="order:ShipHistoryMessage" />
+
+   </wsdl:message>
+
+ 
+
+   <wsdl:message name="InvoiceAckMessageType">
+
+      <wsdl:part name="InvoiceAckMessagePart"
+
+         element="order: InvoiceAckMessage" />
+
+   </wsdl:message>
+
+ 
+
+   <wsdl:portType name="orderingPT">
+
+      <wsdl:operation name="placeOrder">
+
+         <wsdl:input message="tns:OrderMessageType" />
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+ 
+
+   <wsdl:portType name="orderingResponsePT">
+
+      <wsdl:operation name="getOrderAck">
+
+         <wsdl:input message="tns:OrderAckMessageType" />
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+ 
+
+   <wsdl:portType name="orderingConfirmationPT">
+
+      <wsdl:operation name="getOrderConfirmation">
+
+         <wsdl:input message="tns:OrderAckMessageType" />
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+ 
+
+   <wsdl:portType name="shippingServicePT">
+
+      <wsdl:operation name="shippingRequest">
+
+         <wsdl:input message="tns:ShipRequestMessageType" />
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+ 
+
+   <wsdl:portType name="shippingServiceCustomerPT">
+
+      <wsdl:operation name="shippingNotice">
+
+         <wsdl:input message="tns:ShipNoticeMessageType" />
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+</wsdl:definitions>
+

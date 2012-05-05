@@ -1,0 +1,209 @@
+<class-diagram version="1.0.9" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
+  associations="true" dependencies="false" nesting-relationships="true">  
+  <class id="1" corner="BOTTOM_RIGHT" language="java" name="org.bpel4chor.model.grounding.impl.MessageLink" 
+    project="org.bpel4chor.model" file="/org.bpel4chor.model/src/org/bpel4chor/model/grounding/impl/MessageLink.java" 
+    binary="false">    
+    <position x="1089" y="248" width="-1" height="-1"/>    
+    <display autosize="true" stereotype="false" package="true" initial-value="false" signature="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true"/>      
+      <operations public="false" package="false" protected="false" private="false"/>    
+    </display>  
+  </class>  
+  <class id="2" corner="BOTTOM_RIGHT" language="java" name="org.bpel4chor.model.grounding.impl.Property" 
+    project="org.bpel4chor.model" file="/org.bpel4chor.model/src/org/bpel4chor/model/grounding/impl/Property.java" 
+    binary="false">    
+    <position x="628" y="246" width="-1" height="-1"/>    
+    <display autosize="true" stereotype="false" package="true" initial-value="false" signature="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true"/>      
+      <operations public="false" package="false" protected="false" private="false"/>    
+    </display>  
+  </class>  
+  <class id="3" corner="BOTTOM_RIGHT" language="java" name="org.bpel4chor.model.grounding.impl.ParticipantRef" 
+    project="org.bpel4chor.model" file="/org.bpel4chor.model/src/org/bpel4chor/model/grounding/impl/ParticipantRef.java" 
+    binary="false">    
+    <position x="855" y="245" width="-1" height="-1"/>    
+    <display autosize="true" stereotype="false" package="true" initial-value="false" signature="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true"/>      
+      <operations public="false" package="false" protected="false" private="false"/>    
+    </display>  
+  </class>  
+  <class id="4" corner="BOTTOM_RIGHT" language="java" name="org.bpel4chor.model.grounding.impl.Grounding" 
+    project="org.bpel4chor.model" file="/org.bpel4chor.model/src/org/bpel4chor/model/grounding/impl/Grounding.java" 
+    binary="false">    
+    <position x="659" y="37" width="255" height="112"/>    
+    <display autosize="true" stereotype="false" package="true" initial-value="false" signature="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true"/>      
+      <operations public="false" package="false" protected="false" private="false"/>    
+    </display>  
+  </class>  
+  <class id="5" corner="BOTTOM_RIGHT" language="java" name="org.bpel4chor.model.topology.impl.ParticipantSet" 
+    project="org.bpel4chor.model" file="/org.bpel4chor.model/src/org/bpel4chor/model/topology/impl/ParticipantSet.java" 
+    binary="false">    
+    <position x="331" y="460" width="-1" height="-1"/>    
+    <display autosize="true" stereotype="false" package="true" initial-value="false" signature="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true"/>      
+      <operations public="false" package="false" protected="false" private="false"/>    
+    </display>  
+  </class>  
+  <class id="6" corner="BOTTOM_RIGHT" language="java" name="org.bpel4chor.model.topology.impl.Topology" 
+    project="org.bpel4chor.model" file="/org.bpel4chor.model/src/org/bpel4chor/model/topology/impl/Topology.java" 
+    binary="false">    
+    <position x="293" y="245" width="-1" height="-1"/>    
+    <display autosize="true" stereotype="false" package="true" initial-value="false" signature="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true"/>      
+      <operations public="false" package="false" protected="false" private="false"/>    
+    </display>  
+  </class>  
+  <class id="7" corner="BOTTOM_RIGHT" language="java" name="org.bpel4chor.model.topology.impl.MessageLink" 
+    project="org.bpel4chor.model" file="/org.bpel4chor.model/src/org/bpel4chor/model/topology/impl/MessageLink.java" 
+    binary="false">    
+    <position x="749" y="501" width="-1" height="-1"/>    
+    <display autosize="true" stereotype="false" package="true" initial-value="false" signature="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true"/>      
+      <operations public="false" package="false" protected="false" private="false"/>    
+    </display>  
+  </class>  
+  <class id="8" corner="BOTTOM_RIGHT" language="java" name="org.bpel4chor.model.topology.impl.ParticipantType" 
+    project="org.bpel4chor.model" file="/org.bpel4chor.model/src/org/bpel4chor/model/topology/impl/ParticipantType.java" 
+    binary="false">    
+    <position x="61" y="450" width="-1" height="-1"/>    
+    <display autosize="true" stereotype="false" package="true" initial-value="false" signature="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true"/>      
+      <operations public="false" package="false" protected="false" private="false"/>    
+    </display>  
+  </class>  
+  <class id="9" corner="BOTTOM_RIGHT" language="java" name="org.bpel4chor.model.topology.impl.Participant" 
+    project="org.bpel4chor.model" file="/org.bpel4chor.model/src/org/bpel4chor/model/topology/impl/Participant.java" 
+    binary="false">    
+    <position x="512" y="670" width="-1" height="-1"/>    
+    <display autosize="true" stereotype="false" package="true" initial-value="false" signature="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true"/>      
+      <operations public="false" package="false" protected="false" private="false"/>    
+    </display>  
+  </class>  
+  <class id="10" corner="BOTTOM_RIGHT" language="java" 
+    name="org.bpel4chor.model.pbd.impl.ParticipantBehaviorDescription" project="org.bpel4chor.model" 
+    file="/org.bpel4chor.model/src/org/bpel4chor/model/pbd/impl/ParticipantBehaviorDescription.java" binary="false">    
+    <position x="230" y="37" width="200" height="64"/>    
+    <display autosize="true" stereotype="false" package="true" initial-value="false" signature="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true"/>      
+      <operations public="false" package="false" protected="false" private="false"/>    
+    </display>  
+  </class>  
+  <association id="11">    
+    <end type="SOURCE" refId="4" navigable="false">      
+      <attribute id="12" name="properties">        
+        <position x="586" y="175" width="64" height="16"/>      
+      </attribute>      
+      <multiplicity id="13" minimum="0" maximum="2147483647">        
+        <position x="649" y="187" width="16" height="14"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="2" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="14">    
+    <bendpoint x="512" y="417"/>    
+    <end type="SOURCE" refId="6" navigable="false">      
+      <attribute id="15" name="participants"/>      
+      <multiplicity id="16" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="9" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="17">    
+    <end type="SOURCE" refId="5" navigable="false">      
+      <attribute id="18" name="participantSetList">        
+        <position x="385" y="536" width="89" height="14"/>      
+      </attribute>      
+      <multiplicity id="19" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="5" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="20">    
+    <end type="SOURCE" refId="4" navigable="false">      
+      <attribute id="21" name="topology">        
+        <position x="461" y="157" width="56" height="16"/>      
+      </attribute>      
+      <multiplicity id="22" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="6" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="23">    
+    <end type="SOURCE" refId="6" navigable="false">      
+      <attribute id="24" name="participantSets"/>      
+      <multiplicity id="25" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="5" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="26">    
+    <end type="SOURCE" refId="1" navigable="false">      
+      <attribute id="27" name="refMsgLink">        
+        <position x="902" y="392" width="70" height="16"/>      
+      </attribute>      
+      <multiplicity id="28" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="7" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="29">    
+    <end type="SOURCE" refId="4" navigable="false">      
+      <attribute id="30" name="messageLinks">        
+        <position x="973" y="165" width="91" height="16"/>      
+      </attribute>      
+      <multiplicity id="31" minimum="0" maximum="2147483647">        
+        <position x="1002" y="188" width="16" height="14"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="1" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="32">    
+    <end type="SOURCE" refId="4" navigable="false">      
+      <attribute id="33" name="participantRefs">        
+        <position x="732" y="182" width="93" height="16"/>      
+      </attribute>      
+      <multiplicity id="34" minimum="0" maximum="2147483647">        
+        <position x="829" y="179" width="16" height="14"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="3" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="35">    
+    <end type="SOURCE" refId="6" navigable="false">      
+      <attribute id="36" name="participantTypes"/>      
+      <multiplicity id="37" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="8" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="38">    
+    <end type="SOURCE" refId="6" navigable="false">      
+      <attribute id="39" name="messageLinks">        
+        <position x="529" y="388" width="91" height="16"/>      
+      </attribute>      
+      <multiplicity id="40" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="7" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="41">    
+    <bendpoint x="332" y="673"/>    
+    <end type="SOURCE" refId="5" navigable="false">      
+      <attribute id="42" name="participantList"/>      
+      <multiplicity id="43" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="9" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <classifier-display autosize="true" stereotype="false" package="true" initial-value="false" signature="true" 
+    visibility="true">    
+    <attributes public="true" package="true" protected="true" private="true"/>    
+    <operations public="false" package="false" protected="false" private="false"/>  
+  </classifier-display>  
+  <association-display labels="true" multiplicity="true"/>
+</class-diagram>

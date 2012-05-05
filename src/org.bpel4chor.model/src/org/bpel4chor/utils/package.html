@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Package Specification</title>
+</head>
+<body>
+<h1>Package Specification</h1>
+This package contains classes for reading and writing BPEL4Chor artifacts(pbd, topology, grounding), the Constants class, Builder class etc. can also be found here. 
+
+<p><h2>BPEL4ChorReader and BPELChorWriter</h2>
+<p>The BPEL4ChorReader for now just reads in the BPEL files and translate it into a BPEL process.<br>
+The BPEL4ChorWriter does vice versus, and further more it writes the topology and grounding into file via. StAX.
+<p><img alt="The Data flow of the read process and write process" src="../../../resources/img/BPEL4ChorReaderAndWriter.jpg">
+
+<p><h2>BPEL4ChorFactory</h2>
+<p>BPEL4ChorFactory provides the method to create all artifacts for topology and grounding.
+
+<p><h2>BPEL4ChorConstants</h2>
+<p>BPEL4ChorConstants holds all the constants, for instance the <code>ABSTRACT_PROCESS_NAMESPACE</code>
+
+<p><h2>Class Diagram for Utilities</h2>
+<p><img alt="The Class Diagram for utilities" src="../../../resources/img/BPEL4ChorUtils.jpg">
+</body>
+</html>

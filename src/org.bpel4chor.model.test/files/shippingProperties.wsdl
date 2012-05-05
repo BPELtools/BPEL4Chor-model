@@ -1,0 +1,144 @@
+<wsdl:definitions
+
+   targetNamespace="http://example.com/shipping/properties/"
+
+   xmlns:bpel="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+
+   xmlns:vprop="http://docs.oasis-open.org/wsbpel/2.0/varprop"
+
+   xmlns:ship="http://example.com/shipping/ship.xsd"
+
+   xmlns:sif="http://example.com/shipping/interfaces/"
+
+   xmlns:tns="http://example.com/shipping/properties/"
+
+   xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+
+   xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+ 
+
+   <wsdl:import location="shippingPT.wsdl"
+
+      namespace="http://example.com/shipping/interfaces/" />
+
+ 
+
+   <!-- types used in Abstract Processes are required to be finite 
+
+      domains. The itemCountType is restricted by range -->
+
+ 
+
+   <wsdl:types>
+
+      <xsd:schema
+
+         targetNamespace="http://example.com/shipping/ship.xsd">
+
+         <xsd:simpleType name="itemCountType">
+
+            <xsd:restriction base="xsd:int">
+
+               <xsd:minInclusive value="1" />
+
+               <xsd:maxInclusive value="50" />
+
+            </xsd:restriction>
+
+         </xsd:simpleType>
+
+      </xsd:schema>
+
+   </wsdl:types>
+
+ 
+
+   <vprop:property name="shipOrderID" type="xsd:int" />
+
+   <vprop:property name="shipComplete" type="xsd:boolean" />
+
+   <vprop:property name="itemsTotal" type="ship:itemCountType" />
+
+   <vprop:property name="itemsCount" type="ship:itemCountType" />
+
+ 
+
+   <vprop:propertyAlias propertyName="tns:shipOrderID"
+
+      messageType="sif:shippingRequestMsg" part="shipOrder">
+
+      <vprop:query>
+
+         ship:ShipOrderRequestHeader/ship:shipOrderID
+
+      </vprop:query>
+
+   </vprop:propertyAlias>
+
+ 
+
+   <vprop:propertyAlias propertyName="tns:shipOrderID"
+
+      messageType="sif:shippingNoticeMsg" part="shipNotice">
+
+      <vprop:query>ship:ShipNoticeHeader/ship:shipOrderID</vprop:query>
+
+   </vprop:propertyAlias>
+
+ 
+
+   <vprop:propertyAlias propertyName="tns:shipComplete"
+
+      messageType="sif:shippingRequestMsg" part="shipOrder">
+
+      <vprop:query>
+
+         ship:ShipOrderRequestHeader/ship:shipComplete
+
+      </vprop:query>
+
+   </vprop:propertyAlias>
+
+ 
+
+   <vprop:propertyAlias propertyName="tns:itemsTotal"
+
+      messageType="sif:shippingRequestMsg" part="shipOrder">
+
+      <vprop:query>
+
+         ship:ShipOrderRequestHeader/ship:itemsTotal
+
+      </vprop:query>
+
+   </vprop:propertyAlias>
+
+ 
+
+   <vprop:propertyAlias propertyName="tns:itemsCount"
+
+      messageType="sif:shippingRequestMsg" part="shipOrder">
+
+      <vprop:query>
+
+         ship:ShipOrderRequestHeader/ship:itemsCount
+
+      </vprop:query>
+
+   </vprop:propertyAlias>
+
+ 
+
+   <vprop:propertyAlias propertyName="tns:itemsCount"
+
+      messageType="sif:shippingNoticeMsg" part="shipNotice">
+
+      <vprop:query>ship:ShipNoticeHeader/ship:itemsCount</vprop:query>
+
+   </vprop:propertyAlias>
+
+ 
+
+</wsdl:definitions>
+

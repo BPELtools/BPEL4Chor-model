@@ -1,0 +1,62 @@
+<wsdl:definitions
+
+   targetNamespace="http://example.com/ordering/properties/"
+
+   xmlns:bpel="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+
+   xmlns:vprop="http://docs.oasis-open.org/wsbpel/2.0/varprop"
+
+   xmlns:oif="http://example.com/ordering/interfaces/"
+
+   xmlns:order="http://example.com/ordering/order.xsd"
+
+   xmlns:tns="http://example.com/ordering/properties/"
+
+   xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+
+   xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+ 
+
+   <wsdl:import location="orderingPT.wsdl"
+
+      namespace="http://example.com/ordering/interfaces/" />
+
+ 
+
+   <vprop:property name="orderID" type="xsd:string" />
+
+ 
+
+   <vprop:propertyAlias propertyName="tns:orderID"
+
+      messageType="oif:OrderMessageType" part="OrderMessagePart">
+
+      <vprop:query>
+
+         order:OrderMessageHeader/order:orderID
+
+      </vprop:query>
+
+   </vprop:propertyAlias>
+
+ 
+
+   <vprop:propertyAlias propertyName="tns:orderID"
+
+      messageType="oif:ShipNoticeMessageType"
+
+      part="ShipNoticeMessagePart">
+
+      <vprop:query>
+
+         order:ShipNoticeMessageHeader/order:orderID
+
+      </vprop:query>
+
+   </vprop:propertyAlias>
+
+ 
+
+</wsdl:definitions>
+

@@ -1,0 +1,68 @@
+<wsdl:definitions
+
+   targetNamespace="http://example.com/shipping/interfaces/"
+
+   xmlns:ship="http://example.com/shipping/ship.xsd"
+
+   xmlns:tns="http://example.com/shipping/interfaces/"
+
+   xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+
+   xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+ 
+
+   <wsdl:types>
+
+      <xsd:schema>
+
+         <!-- import ship schema -->
+
+      </xsd:schema>
+
+   </wsdl:types>
+
+ 
+
+   <wsdl:message name="shippingRequestMsg">
+
+      <wsdl:part name="shipOrder" type="ship:shipOrder" />
+
+   </wsdl:message>
+
+ 
+
+   <wsdl:message name="shippingNoticeMsg">
+
+      <wsdl:part name="shipNotice" type="ship:shipNotice" />
+
+   </wsdl:message>
+
+ 
+
+   <wsdl:portType name="shippingServicePT">
+
+      <wsdl:operation name="shippingRequest">
+
+         <wsdl:input message="tns:shippingRequestMsg" />
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+ 
+
+   <wsdl:portType name="shippingServiceCustomerPT">
+
+      <wsdl:operation name="shippingNotice">
+
+         <wsdl:input message="tns:shippingNoticeMsg" />
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+ 
+
+</wsdl:definitions>
+

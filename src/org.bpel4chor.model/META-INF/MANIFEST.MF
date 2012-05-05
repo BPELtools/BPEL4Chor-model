@@ -1,0 +1,19 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: BPEL4Chor Model Plug-in
+Bundle-SymbolicName: org.bpel4chor.model
+Bundle-Version: 1.0.0
+Export-Package: org.bpel4chor.interfaces,
+ org.bpel4chor.model.grounding.impl,
+ org.bpel4chor.model.pbd.impl,
+ org.bpel4chor.model.topology.impl,
+ org.bpel4chor.utils,
+ org.bpel4chor.utils.exceptions
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.bpel.model;bundle-version="0.5.0",
+ org.eclipse.emf.common;bundle-version="2.6.0",
+ org.eclipse.emf.ecore;bundle-version="2.6.1",
+ javax.wsdl;bundle-version="1.5.1",
+ org.eclipse.wst.wsdl;bundle-version="1.2.104",
+ org.eclipse.emf.ecore.xmi;bundle-version="2.5.0",
+ org.eclipse.xsd;bundle-version="[2.4.0,3.0.0)"

@@ -1,0 +1,6 @@
+package org.bpel4chor.utils;
+
+public enum ContainmentValue {
+	ADD_IF_NOT_EXISTS, MUST_ADD, REQUIRED
+	
+}

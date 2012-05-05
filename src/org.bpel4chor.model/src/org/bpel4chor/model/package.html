@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Package Specification</title>
+</head>
+<body>
+<h1>Package Specification - BPEL4Chor Model</h1>
+This package contains the classes for BPEL4Chor model(topology, grounding, participant behavior description), including interfaces and implementations.
+
+<p><h2>1.Topology and Grounding</h2>
+<p>In general, the topology and grounding object will not 100% be mapped to the xml syntax, for instance,
+<pre>
+topology
+  --> messageLinks
+  	-->messageLink1
+  	-->messageLink2
+  	-->messageLink3
+  	...
+</pre> 
+<p>
+In this case our <tt>topology</tt> object will contain a property variable with the name <tt>messageLinks</tt> 
+which is defined as <tt>List&lt;MessageLink&gt;</tt>.
+
+<p>The programming model looks like:
+<pre><code>
+Topology topology = builder.createNewTopology("ExmpleTopology", "urn:exampletopology");
+	
+MessageLink ml = new MessageLinkImpl("eTicketLink", "airline", "SendTickets", "travler", "receiveETicket", "eTicket");
+MessageLink m2 = new MessageLinkImpl("tripOrder", "travler", "SubmitTripOrder", "Agency", "ReceiveTripOrder", "tripOrder");
+		
+topology.add(ml);
+topology.add(m2);
+</code></pre>
+
+<p><b>To Note</b>: As the QName in the topology/grounding element might contain individual namespaceUri, 
+so the topology/grounding provide method to collect the prefix:namespaceUri pair up to the root.
+A namespaceMap(see also <tt>BPEL4ChorNamespaceMap</tt>) with reverse mapping capability is used for storage of the namespaceUris.
+
+<p><img alt="UML Diagram for topology and grounding" src="../../../resources/img/topology-grounding.jpg">
+
+<p><h2>2. Participant Behavior Description(PBD)</h2>
+<p>Since the participant behavior description is an extension of abstract BPEL process profile. 
+We do not provide particular implementation for this object. The BPEL process will be used directly as a PBD.
+The 'wsu:id' for communication activities and onMessage activity will be inserted in the activity at the very beginning of reading BPEL file 
+and be took out at the end writing out the BPEL file.
+
+<p><h2>3. Class Diagram for the BPEL4Chor Model Implementation</h2>
+<p><img alt="Class Diagram for BPEL4Chor Model Implementation" src="../../../resources/img/BPEL4ChorModel.JPG">
+
+</body>
+</html>

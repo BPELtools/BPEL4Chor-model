@@ -1,0 +1,58 @@
+<wsdl:definitions
+
+   targetNamespace="http://example.com/ordering/partnerLinkTypes/"
+
+   xmlns:oif="http://example.com/ordering/interfaces/"
+
+   xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype"
+
+   xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+
+ 
+
+   <wsdl:import location="orderingPT.wsdl"
+
+      namespace="http://example.com/ordering/interfaces/" />
+
+ 
+
+   <plnk:partnerLinkType name="orderingServiceLT">
+
+      <plnk:role name="orderingService" 
+
+         portType="oif:orderingPT" />
+
+      <plnk:role name="orderingServiceResponse"
+
+         portType="oif:orderingResponsePT" />
+
+   </plnk:partnerLinkType>
+
+ 
+
+   <plnk:partnerLinkType name="shipperLT">
+
+      <plnk:role name="shippingService"
+
+         portType="oif:shippingServicePT" />
+
+      <plnk:role name="shippingServiceResponse"
+
+         portType="oif:shippingServiceResponsePT" />
+
+   </plnk:partnerLinkType>
+
+ 
+
+   <plnk:partnerLinkType name="completionConfirmationLT">
+
+      <plnk:role name="orderingServiceConfirmation"
+
+         portType="oif:orderingConfirmationPT" />
+
+   </plnk:partnerLinkType>
+
+ 
+
+</wsdl:definitions>
+
