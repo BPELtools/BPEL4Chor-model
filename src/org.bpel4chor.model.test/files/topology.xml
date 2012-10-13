@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<topology name="OrderingProcessTopology" targetNamespace="urn:HPI_IAAS:choreography:schemas:choreography:topology:2006/12" xmlns:cns="http://www.iaas.uni-stuttgart.de">
+	<participantTypes>
+		<participantType name="wType" participantBehaviorDescription="cns:w"/>
+		<participantType name="xType" participantBehaviorDescription="cns:x"/>
+		<participantType name="yType" participantBehaviorDescription="cns:y"/>
+		<participantType name="zType" participantBehaviorDescription="cns:z"/>
+	</participantTypes>
+
+	<participants>
+		<participant name="w" type="wType"/>
+		<participant name="x" type="xType" selects="y z w"/>
+		<participant name="y" type="yType" selects="w"/>
+		<participant name="z" type="zType" selects="w"/>
+	</participants>
+
+	<messageLinks>
+		<messageLink name="controlLinkMessageLink" messageName="controlLinkMessage" sender="z" sendActivity="linkD2GInvokeTrue" receiver="w" receiveActivity="fromz"/>
+		<messageLink name="controlLinkMessageLink1" messageName="controlLinkMessage" sender="z" sendActivity="linkD2GInvokeFalse" receiver="w" receiveActivity="fromz"/>
+		<messageLink name="controlLinkMessageLink2" messageName="controlLinkMessage" sender="y" sendActivity="linkC2GInvokeTrue" receiver="w" receiveActivity="fromy"/>
+		<messageLink name="controlLinkMessageLink3" messageName="controlLinkMessage" sender="y" sendActivity="linkC2GInvokeFalse" receiver="w" receiveActivity="fromy"/>
+		<messageLink name="controlLinkMessageLink4" messageName="controlLinkMessage" sender="x" sendActivity="linkB2CInvokeTrue" receiver="y" receiveActivity="fromx"/>
+		<messageLink name="controlLinkMessageLink5" messageName="controlLinkMessage" sender="x" sendActivity="linkB2CInvokeFalse" receiver="y" receiveActivity="fromx"/>
+		<messageLink name="controlLinkMessageLink6" messageName="controlLinkMessage" sender="x" sendActivity="linkB2DInvokeTrue" receiver="z" receiveActivity="fromx"/>
+		<messageLink name="controlLinkMessageLink7" messageName="controlLinkMessage" sender="x" sendActivity="linkB2DInvokeFalse" receiver="z" receiveActivity="fromx"/>
+		<messageLink name="controlLinkMessageLink8" messageName="controlLinkMessage" sender="x" sendActivity="linkB2GInvokeTrue" receiver="w" receiveActivity="fromx"/>
+		<messageLink name="controlLinkMessageLink9" messageName="controlLinkMessage" sender="x" sendActivity="linkB2GInvokeFalse" receiver="w" receiveActivity="fromx"/>
+		<messageLink name="xypaymentInfoSQMessageLink" messageName="xypaymentInfoSQMessage" sender="x" sendActivity="SendpaymentInfoB-1FR" receiver="y" receiveActivity="ReceiveB-1FR"/>
+		<messageLink name="xypaymentInfoSQMessageLink1" messageName="xypaymentInfoSQMessage" sender="x" sendActivity="SendpaymentInfoB-1FRFH" receiver="y" receiveActivity="ReceiveB-1FR"/>
+		<messageLink name="xzpaymentInfoSQMessageLink" messageName="xzpaymentInfoSQMessage" sender="x" sendActivity="SendpaymentInfoB-69i" receiver="z" receiveActivity="ReceiveB-69i"/>
+		<messageLink name="xzpaymentInfoSQMessageLink1" messageName="xzpaymentInfoSQMessage" sender="x" sendActivity="SendpaymentInfoB-69iFH" receiver="z" receiveActivity="ReceiveB-69i"/>
+		<messageLink name="xwpaymentInfoSQMessageLink" messageName="xwpaymentInfoSQMessage" sender="x" sendActivity="SendpaymentInfoB-OzN" receiver="w" receiveActivity="ReceiveB-OzN"/>
+		<messageLink name="xwpaymentInfoSQMessageLink1" messageName="xwpaymentInfoSQMessage" sender="x" sendActivity="SendpaymentInfoB-OzNFH" receiver="w" receiveActivity="ReceiveB-OzN"/>
+		<messageLink name="ywpaymentInfoSQMessageLink" messageName="ywpaymentInfoSQMessage" sender="y" sendActivity="SendpaymentInfoC-eTF" receiver="w" receiveActivity="ReceiveC-eTF"/>
+		<messageLink name="ywpaymentInfoSQMessageLink1" messageName="ywpaymentInfoSQMessage" sender="y" sendActivity="SendpaymentInfoC-eTFFH" receiver="w" receiveActivity="ReceiveC-eTF"/>
+		<messageLink name="zwpaymentInfoSQMessageLink" messageName="zwpaymentInfoSQMessage" sender="z" sendActivity="SendpaymentInfoD-Nop" receiver="w" receiveActivity="ReceiveD-Nop"/>
+		<messageLink name="zwpaymentInfoSQMessageLink1" messageName="zwpaymentInfoSQMessage" sender="z" sendActivity="SendpaymentInfoD-NopFH" receiver="w" receiveActivity="ReceiveD-Nop"/>
+	</messageLinks>
+
+</topology>

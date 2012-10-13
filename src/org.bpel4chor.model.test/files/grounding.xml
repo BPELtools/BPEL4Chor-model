@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grounding topology="tns:OrderingProcessTopology" targetNamespace="urn:HPI_IAAS:choreography:schemas:choreography:grounding:2006/12" xmlns:cns="http://www.iaas.uni-stuttgart.de" xmlns:tns="urn:HPI_IAAS:choreography:schemas:choreography:topology:2006/12">
+	<messageLinks>
+		<messageLink name="controlLinkMessageLink" portType="cns:zwPT" operation="linkD2GOperation"/>
+		<messageLink name="controlLinkMessageLink1" portType="cns:zwPT" operation="linkD2GOperation"/>
+		<messageLink name="controlLinkMessageLink2" portType="cns:ywPT" operation="linkC2GOperation"/>
+		<messageLink name="controlLinkMessageLink3" portType="cns:ywPT" operation="linkC2GOperation"/>
+		<messageLink name="controlLinkMessageLink4" portType="cns:xyPT" operation="linkB2COperation"/>
+		<messageLink name="controlLinkMessageLink5" portType="cns:xyPT" operation="linkB2COperation"/>
+		<messageLink name="controlLinkMessageLink6" portType="cns:xzPT" operation="linkB2DOperation"/>
+		<messageLink name="controlLinkMessageLink7" portType="cns:xzPT" operation="linkB2DOperation"/>
+		<messageLink name="controlLinkMessageLink8" portType="cns:xwPT" operation="linkB2GOperation"/>
+		<messageLink name="controlLinkMessageLink9" portType="cns:xwPT" operation="linkB2GOperation"/>
+		<messageLink name="xypaymentInfoSQMessageLink" portType="cns:xyPT" operation="xypaymentInfoB-1FROP"/>
+		<messageLink name="xypaymentInfoSQMessageLink1" portType="cns:xyPT" operation="xypaymentInfoB-1FROP"/>
+		<messageLink name="xzpaymentInfoSQMessageLink" portType="cns:xzPT" operation="xzpaymentInfoB-69iOP"/>
+		<messageLink name="xzpaymentInfoSQMessageLink1" portType="cns:xzPT" operation="xzpaymentInfoB-69iOP"/>
+		<messageLink name="xwpaymentInfoSQMessageLink" portType="cns:xwPT" operation="xwpaymentInfoB-OzNOP"/>
+		<messageLink name="xwpaymentInfoSQMessageLink1" portType="cns:xwPT" operation="xwpaymentInfoB-OzNOP"/>
+		<messageLink name="ywpaymentInfoSQMessageLink" portType="cns:ywPT" operation="ywpaymentInfoC-eTFOP"/>
+		<messageLink name="ywpaymentInfoSQMessageLink1" portType="cns:ywPT" operation="ywpaymentInfoC-eTFOP"/>
+		<messageLink name="zwpaymentInfoSQMessageLink" portType="cns:zwPT" operation="zwpaymentInfoD-NopOP"/>
+		<messageLink name="zwpaymentInfoSQMessageLink1" portType="cns:zwPT" operation="zwpaymentInfoD-NopOP"/>
+	</messageLinks>
+
+
+	<properties>
+		<property name="correlProperty" WSDLproperty="cns:correlProperty"/>
+	</properties>
+
+</grounding>
