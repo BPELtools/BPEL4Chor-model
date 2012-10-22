@@ -355,7 +355,7 @@ public class BPEL4ChorReader {
 	 */
 	private static List<String> getStrsAttribute(XMLStreamReader r, String attrName, boolean needed) throws MalformedTLGLSyntaxException {
 		if (r.getAttributeValue(null, attrName) != null) {
-			return Arrays.asList(r.getAttributeValue(null, "selects").split("[ ]+"));
+			return Arrays.asList(r.getAttributeValue(null, attrName).split("[ ]+"));
 		} else {
 			if (needed) {
 				throw new MalformedTLGLSyntaxException("Attribute " + attrName + " is not set !!");
@@ -573,7 +573,7 @@ public class BPEL4ChorReader {
 			messageLink.setSenders(tempList);
 		}
 		temp = null;
-		temp = BPEL4ChorReader.getStrAttribute(r, "sender", false);
+		temp = BPEL4ChorReader.getStrAttribute(r, "sendActivity", false);
 		if (temp != null) {
 			messageLink.setSendActivity(temp.toString());
 		}
