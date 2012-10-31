@@ -37,6 +37,8 @@ import org.eclipse.wst.wsdl.internal.impl.DefinitionImpl;
 import org.eclipse.wst.wsdl.internal.util.WSDLResourceFactoryImpl;
 import org.eclipse.xsd.util.XSDResourceFactoryImpl;
 
+import de.uni_stuttgart.iaas.bpel.model.utilities.ZipUtil;
+
 /**
  * Writer for BPEL4Chor(PBD, topology, grounding)
  * 

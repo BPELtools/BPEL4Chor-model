@@ -17,8 +17,7 @@ import org.junit.runners.Suite;
     org.bpel4chor.model.utils.BPEL4ChorUtilTest.class,
     org.bpel4chor.model.utils.BPEL4ChorReaderTest.class,
     org.bpel4chor.model.utils.BPEL4ChorWriterTest.class,
-    org.bpel4chor.model.utils.WSUIDGeneratorTest.class,
-    org.bpel4chor.model.utils.ZipUtilTest.class
+    org.bpel4chor.model.utils.WSUIDGeneratorTest.class
 })
 
 public class AllTests {

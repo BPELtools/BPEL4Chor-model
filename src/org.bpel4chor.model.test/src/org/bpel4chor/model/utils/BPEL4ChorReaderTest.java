@@ -42,6 +42,8 @@ import org.junit.Test;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
+import de.uni_stuttgart.iaas.bpel.model.utilities.MyWSDLUtil;
+
 public class BPEL4ChorReaderTest {
 	
 	private File testFileDir;// where the test files locate
@@ -249,10 +251,10 @@ public class BPEL4ChorReaderTest {
 		String wsdlURI_2 = this.testFileDir.getAbsolutePath() + File.separator + "ProcessBlaArtifacts.wsdl";
 		String wsdlURI_3 = this.testFileDir.getAbsolutePath() + File.separator + "ProcessOrder.wsdl";
 		String wsdlURI_4 = this.testFileDir.getAbsolutePath() + File.separator + "OrderingProcessSimple3.wsdl";
-		BPEL4ChorReader.readWSDL(wsdlURI_1);
-		BPEL4ChorReader.readWSDL(wsdlURI_2);
-		BPEL4ChorReader.readWSDL(wsdlURI_3);
-		BPEL4ChorReader.readWSDL(wsdlURI_4);
+		MyWSDLUtil.readWSDL(wsdlURI_1);
+		MyWSDLUtil.readWSDL(wsdlURI_2);
+		MyWSDLUtil.readWSDL(wsdlURI_3);
+		MyWSDLUtil.readWSDL(wsdlURI_4);
 	}
 	
 	@Test

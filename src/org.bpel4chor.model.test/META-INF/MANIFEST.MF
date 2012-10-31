@@ -10,4 +10,5 @@ Require-Bundle: org.bpel4chor.model;bundle-version="1.0.0",
  org.eclipse.emf.ecore.xmi;bundle-version="2.5.0",
  javax.wsdl;bundle-version="1.5.1",
  org.apache.xerces;bundle-version="2.9.0",
- org.eclipse.wst.wsdl;bundle-version="1.2.202"
+ org.eclipse.wst.wsdl;bundle-version="1.2.202",
+ de.uni_stuttgart.iaas.bpel.model.utilities;bundle-version="1.0.0"

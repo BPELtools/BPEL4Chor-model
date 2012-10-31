@@ -103,31 +103,6 @@ public class BPEL4ChorReader {
 		return (Process) resource.getContents().get(0);
 	}
 	
-	/**
-	 * Read the WSDL document into a definition
-	 * 
-	 * @param wsdlURI The WSDL URI
-	 * @return
-	 * @throws WSDLException
-	 * @throws IOException
-	 */
-	public static Definition readWSDL(String wsdlURI) throws WSDLException, IOException {
-		
-		if ((wsdlURI == null) || wsdlURI.isEmpty()) {
-			throw new IllegalArgumentException();
-		}
-		
-		if (!wsdlURI.endsWith(".wsdl")) {
-			throw new IllegalArgumentException("invalid wsdl uri. " + wsdlURI);
-		}
-		
-		ResourceSet rs = new ResourceSetImpl();
-		rs.getResourceFactoryRegistry().getExtensionToFactoryMap().put("wsdl", new WSDLResourceFactoryImpl());
-		Resource resource = rs.createResource(URI.createFileURI(wsdlURI));
-		resource.load(null);
-		Definition root = (Definition) resource.getContents().iterator().next();
-		return root;
-	}
 	
 	/**
 	 * Read in the topology file from the given InputStream
