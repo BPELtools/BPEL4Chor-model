@@ -10,24 +10,15 @@ import org.junit.runners.Suite;
  * @author Daojun.Cui
  */
 @RunWith(Suite.class)
-@Suite.SuiteClasses({
-    org.bpel4chor.model.topology.TopologyImplTest.class,
-    org.bpel4chor.model.grounding.GroundingImplTest.class,
-    org.bpel4chor.model.utils.BPEL4ChorNamespaceMapTest.class,
-    org.bpel4chor.model.utils.BPEL4ChorUtilTest.class,
-    org.bpel4chor.model.utils.BPEL4ChorReaderTest.class,
-    org.bpel4chor.model.utils.BPEL4ChorWriterTest.class,
-    org.bpel4chor.model.utils.WSUIDGeneratorTest.class
-})
-
+@Suite.SuiteClasses({org.bpel4chor.model.topology.TopologyImplTest.class, org.bpel4chor.model.grounding.GroundingImplTest.class, org.bpel4chor.model.utils.BPEL4ChorNamespaceMapTest.class, org.bpel4chor.model.utils.BPEL4ChorUtilTest.class, org.bpel4chor.model.utils.BPEL4ChorReaderTest.class, org.bpel4chor.model.utils.BPEL4ChorWriterTest.class, org.bpel4chor.model.utils.WSUIDGeneratorTest.class})
 public class AllTests {
-
-//	public static Test suite() {
-//		TestSuite suite = new TestSuite(AllTests.class.getName());
-//		//$JUnit-BEGIN$
-//
-//		//$JUnit-END$
-//		return suite;
-//	}
-
+	
+	// public static Test suite() {
+	// TestSuite suite = new TestSuite(AllTests.class.getName());
+	// //$JUnit-BEGIN$
+	//
+	// //$JUnit-END$
+	// return suite;
+	// }
+	
 }

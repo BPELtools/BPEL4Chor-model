@@ -74,6 +74,7 @@ public class BPEL4ChorWriter {
 		BPELPlugin bpelPlugin = new BPELPlugin();
 		// setup the extension to factory map, so that the proper
 		// ResourceFactory can be used to read the file.
+		Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("pbd", new BPELResourceFactoryImpl());
 		Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("bpel", new BPELResourceFactoryImpl());
 		Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("wsdl", new WSDLResourceFactoryImpl());
 		Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("xsd", new XSDResourceFactoryImpl());

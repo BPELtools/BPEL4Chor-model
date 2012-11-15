@@ -12,7 +12,6 @@ import org.eclipse.bpel.model.Receive;
 import org.eclipse.bpel.model.Reply;
 import org.eclipse.bpel.model.resource.BPELResource;
 import org.eclipse.bpel.model.resource.BPELWriter;
-import org.eclipse.bpel.model.util.BPELConstants;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
@@ -104,7 +103,8 @@ public class PBDWriter extends BPELWriter {
 		// The Eclipse BPEL writer does NOT add any "xmlns" prefix
 		// In "normal operation mode", there is a "bpel"-prefix written by the
 		// designer
-		procElement.setAttribute("xmlns", BPELConstants.NAMESPACE_ABSTRACT_2007);
+		// procElement.setAttribute("xmlns",
+		// BPELConstants.NAMESPACE_ABSTRACT_2007);
 		
 		// Set the namespace for the wsu:id element
 		procElement.setAttribute("xmlns:wsu", BPEL4ChorConstants.XMLNS_WSU);
