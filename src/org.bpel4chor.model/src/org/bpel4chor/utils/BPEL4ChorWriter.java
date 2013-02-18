@@ -687,6 +687,34 @@ public class BPEL4ChorWriter {
 	 * @param outputStream
 	 * @throws IOException
 	 */
+	public static void writeAbstractBPEL(Process process, OutputStream outputStream) throws IOException {
+		
+		//
+		// BPELResource is just needed for providing bpel process to the
+		// BPEL/PBD writer, the URI is not used, we use "any.bpel" to bypass the
+		// Exception because of no URI presents.
+		//
+		boolean useNSPrefix = false;
+		ResourceSet resourceSet = new ResourceSetImpl();
+		URI uri = URI.createFileURI(process.getName() + ".bpel");
+		BPELResource resource = (BPELResource) resourceSet.createResource(uri);
+		resource.setOptionUseNSPrefix(useNSPrefix);
+		resource.getContents().add(process);
+		
+		AbstractBPELWriter writer = new AbstractBPELWriter();
+		Map args = new HashMap();
+		
+		args.put("", "");
+		writer.write(resource, outputStream, args);
+	}
+	
+	/**
+	 * Write the BPEL process to BPEL file using BPELResource
+	 * 
+	 * @param process
+	 * @param outputStream
+	 * @throws IOException
+	 */
 	public static void writeBPEL(Process process, OutputStream outputStream) throws IOException {
 		
 		ResourceSet resourceSet = new ResourceSetImpl();

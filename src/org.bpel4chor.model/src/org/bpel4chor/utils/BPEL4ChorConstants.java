@@ -1,4 +1,5 @@
 package org.bpel4chor.utils;
+
 /**
  * Constants for BPEL4Chor Model
  * 
@@ -12,7 +13,7 @@ public class BPEL4ChorConstants {
 	
 	/** The 2.0 BPEL Namespace for abstract processes */
 	public final static String ABSTRACT_PROCESS_NAMESPACE = "http://docs.oasis-open.org/wsbpel/2.0/process/abstract";
-
+	
 	/** Namespace of xml schema instance */
 	public final static String XMLNS_XSI = "http://www.w3.org/2001/XMLSchema-instance";
 	
@@ -25,10 +26,16 @@ public class BPEL4ChorConstants {
 	/** The default namespace for topology */
 	public final static String TOPOLOGY_XMLNS = "urn:HPI_IAAS:choreography:schemas:choreography:topology:2006/12";
 	
-	/** The default targetNamespace for topology, urn:HPI_IAAS:choreography:schemas:choreography:topology:2006/12 */
+	/**
+	 * The default targetNamespace for topology,
+	 * urn:HPI_IAAS:choreography:schemas:choreography:topology:2006/12
+	 */
 	public final static String TOPOLOGY_TARGET_NAMESPACE = "urn:HPI_IAAS:choreography:schemas:choreography:topology:2006/12";
 	
-	/** The default namespace for grounding, urn:HPI_IAAS:choreography:schemas:choreography:grounding:2006/12 */
+	/**
+	 * The default namespace for grounding,
+	 * urn:HPI_IAAS:choreography:schemas:choreography:grounding:2006/12
+	 */
 	public final static String GROUNDING_XMLNS = "urn:HPI_IAAS:choreography:schemas:choreography:grounding:2006/12";
 	
 	/** The default targetNamespace for grounding */
@@ -52,9 +59,12 @@ public class BPEL4ChorConstants {
 	/** Default Attribute Name for Declaring xml namespace */
 	public final static String DEFAULT_ATTRIBUTE_NAME = "xmlns";
 	
-	/** Prefix base for new choreography namespace, the whole prefix will be the base+number */
+	/**
+	 * Prefix base for new choreography namespace, the whole prefix will be the
+	 * base+number
+	 */
 	public final static String CHOREOGRAPHY_PREFIX_BASE = "cns";
 	
 	/** Default export directory C:\tmp\bpel4chor */
-	public static final String BPEL4CHOR_DEFAULT_WRITE_DIR = "C:\\tmp\\bpel4chor";
+	public static final String BPEL4CHOR_DEFAULT_WRITE_DIR = "D:\\Arbeit\\Diplom\\tmpout\\bpel4chor";
 }
