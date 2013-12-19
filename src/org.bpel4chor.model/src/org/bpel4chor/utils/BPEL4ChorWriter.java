@@ -685,9 +685,10 @@ public class BPEL4ChorWriter {
 	 * 
 	 * @param process
 	 * @param outputStream
+	 * @param outputDir
 	 * @throws IOException
 	 */
-	public static void writeAbstractBPEL(Process process, OutputStream outputStream) throws IOException {
+	public static void writeAbstractBPEL(Process process, OutputStream outputStream, String outputDir) throws IOException {
 		
 		//
 		// BPELResource is just needed for providing bpel process to the
@@ -696,15 +697,14 @@ public class BPEL4ChorWriter {
 		//
 		boolean useNSPrefix = false;
 		ResourceSet resourceSet = new ResourceSetImpl();
-		URI uri = URI.createFileURI(process.getName() + ".bpel");
+		URI uri = URI.createFileURI(outputDir + process.getName() + ".bpel");
 		BPELResource resource = (BPELResource) resourceSet.createResource(uri);
 		resource.setOptionUseNSPrefix(useNSPrefix);
 		resource.getContents().add(process);
 		
 		AbstractBPELWriter writer = new AbstractBPELWriter();
-		Map args = new HashMap();
-		
-		args.put("", "");
+		Map<String, Boolean> args = new HashMap<String, Boolean>();
+		args.put(AbstractBPELWriter.SKIP_AUTO_IMPORT, true);
 		writer.write(resource, outputStream, args);
 	}
 	
@@ -758,15 +758,16 @@ public class BPEL4ChorWriter {
 	public static void writeWSDL(Definition defn, OutputStream outputStream) throws WSDLException, IOException {
 		Resource resource = ((DefinitionImpl) defn).eResource();
 		
-		String processName = defn.getQName().getLocalPart();
-		if ((processName == null) || processName.isEmpty()) {
-			throw new IllegalStateException();
-		}
+		//CHECK wirklich einen fehler werfen?, processname unten durch wsdlname ersetz, wird nun ausgelesen... sicher?
+//		if ((processName == null) || processName.isEmpty()) {
+//			throw new IllegalStateException();
+//		}
 		
 		if (resource == null) {
+			String wsdlName = defn.getDocumentBaseURI().substring(defn.getDocumentBaseURI().lastIndexOf("/") + 1);
 			ResourceSet rs = new ResourceSetImpl();
 			rs.getResourceFactoryRegistry().getExtensionToFactoryMap().put("wsdl", new WSDLResourceFactoryImpl());
-			resource = rs.createResource(URI.createFileURI(processName + ".wsdl"));
+			resource = rs.createResource(URI.createFileURI(wsdlName));
 			resource.getContents().add(defn);
 		}
 		
