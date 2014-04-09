@@ -28,7 +28,7 @@
       sendActivity="NCName"?
       receiver="NCName" receiveActivity="NCName"?
       bindSenderTo="NCName"?
-      messageName="NCName"
+      messageName="NCName" messageType="QName"
       (participantRefs="NCNames" copyParticipantRefsTo="NCNames"?)?
      />*
   </messageLinks>
