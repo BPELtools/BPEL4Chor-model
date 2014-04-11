@@ -2,21 +2,20 @@
 	///////////////////////////////////////////////////////////////////////////////////////////// 
 	// Initial authors: Gero Decker and Oliver Kopp
 	// Created: 6 Dec 2006
-	// Purpose: Schema definition for .chor-files
+	// Purpose: Schema definition for .topology-files
 	///////////////////////////////////////////////////////////////////////////////////////////// 
 -->
 
 <topology name="NCName" targetNamespace="anyURI">
   <participantTypes>
     <participantType name="NCName"
-      (participantBehaviorDescription="QName" processLanguage="anyURI"?)? />+      
+      participantBehaviorDescription="QName" processLanguage="anyURI"? />+
   </participantTypes>
   <participants>
-    <participant name="NCName" type="NCName" selects="NCNames"? scope="QName"? />+
-    <participantSet name="NCName" type="NCName" scope="QName"?
-      forEach="QNames"? >*
+    <participant name="NCName" type="NCName" selects="NCNames"? />+
+    <participantSet name="NCName" type="NCName">*
        (<participantSet ... >...</participantSet>
-       |<participant name="NCName" scope="QName"? forEach="QNames"?
+       |<participant name="NCName"
          containment="add-if-not-exists|must-add|required"? />
        )+
     </participantSet>
