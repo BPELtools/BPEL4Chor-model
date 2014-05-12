@@ -2,7 +2,9 @@
 <!--
 	///////////////////////////////////////////////////////////////////////////////////////////// 
 	// Initial authors: Gero Decker and Oliver Kopp
+	// Updated by: Oliver Kopp
 	// Created: 6 Dec 2006
+	// Last Update: 12 May 2014
 	// Purpose: Schema definition for .grounding-files
 	///////////////////////////////////////////////////////////////////////////////////////////// 
 -->
@@ -27,7 +29,6 @@
 		<xs:sequence>
 			<xs:element ref="messageLinks" minOccurs="1" maxOccurs="1" />
 			<xs:element ref="participantRefs" minOccurs="0" maxOccurs="1" />
-			<xs:element ref="properties" minOccurs="0" maxOccurs="1" />
 		</xs:sequence>
 		<xs:attribute name="topology" type="xs:QName" />
 	</xs:complexType>
@@ -46,26 +47,13 @@
 		</xs:sequence>
 	</xs:complexType>
 
-	<xs:element name="properties" type="tProperties"></xs:element>
-	<xs:complexType name="tProperties">
-		<xs:sequence>
-			<xs:element ref="property" maxOccurs="unbounded" minOccurs="1" />
-		</xs:sequence>
-	</xs:complexType>
-
 	<xs:element name="messageLink" type="tMessageLink"></xs:element>
 	<xs:complexType name="tMessageLink">
-		<xs:attribute name="name" type="xs:QName" use="required" />
-
-		<xs:attribute name="portType" type="xs:QName" use="optional" />
-		<xs:attribute name="operation" type="xs:NCName" use="optional" />
-		
-		<xs:attribute name="senders" type="topology:QNames" use="optional" />
-		<xs:attribute name="expectedPortType" type="xs:QName" use="optional" />
-		<xs:attribute name="expectedOperation" type="xs:NCName" use="optional" />
-		<xs:attribute name="mediator" type="xs:anyURI" use="optional" />
-		<xs:attribute name="offeredPortType" type="xs:QName" use="optional" />
-		<xs:attribute name="offeredOperation" type="xs:NCName" use="optional" />
+		<xs:attribute name="name" type="xs:NCame" use="required" />
+		<xs:attribute name="partnerLinkType" type="xs:QName" use="required" />
+		<xs:attribute name="operation" type="xs:NCName" use="required" />
+		<xs:attribute name="senderRole" type="xs:NCName" />
+		<xs:attribute name="receiverRole" type="xs:NCName" />
 	</xs:complexType>
 	
 	<xs:element name="participantRef" type="tParticipantRef"></xs:element>
@@ -73,11 +61,4 @@
 		<xs:attribute name="name" type="xs:NCName" use="required" />
 		<xs:attribute name="WSDLproperty" type="xs:QName" use="required" />
     </xs:complexType>	
-		
-	<xs:element name="property" type="tProperty"></xs:element>
-	<xs:complexType name="tProperty">
-		<xs:attribute name="name" type="xs:NCName" use="required" />
-		<xs:attribute name="WSDLproperty" type="xs:QName" use="required" />
-    </xs:complexType>	
-		
 </xs:schema>
