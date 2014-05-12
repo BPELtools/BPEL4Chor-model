@@ -17,4 +17,4 @@
   <participantRefs>
     <participantRef name="NCName" WSDLProperty="QName" />+
   </participantRefs>?
- </grounding>
+</grounding>
