@@ -15,6 +15,6 @@
 	  senderRole="NCName"? receiverRole="NCName" />*
   </messageLinks>
   <participantRefs>
-    <participantRef name="NCName" WSDLproperty="QName" />+
+    <participantRef name="NCName" WSDLProperty="QName" />+
   </participantRefs>?
  </grounding>

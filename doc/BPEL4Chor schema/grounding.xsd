@@ -59,6 +59,6 @@
 	<xs:element name="participantRef" type="tParticipantRef"></xs:element>
 	<xs:complexType name="tParticipantRef">
 		<xs:attribute name="name" type="xs:NCName" use="required" />
-		<xs:attribute name="WSDLproperty" type="xs:QName" use="required" />
+		<xs:attribute name="WSDLProperty" type="xs:QName" use="required" />
     </xs:complexType>	
 </xs:schema>
