@@ -765,10 +765,12 @@ public class BPEL4ChorWriter {
 		
 		if (resource == null) {
 			String baseURI = defn.getDocumentBaseURI();
+			String wsdlName;
 			if (baseURI == null) {
-				throw new NullPointerException("baseURI is null");
+				wsdlName = "output.wsdl";
+			} else {
+				wsdlName = baseURI.substring(baseURI.lastIndexOf("/") + 1);
 			}
-			String wsdlName = baseURI.substring(baseURI.lastIndexOf("/") + 1);
 			ResourceSet rs = new ResourceSetImpl();
 			rs.getResourceFactoryRegistry().getExtensionToFactoryMap().put("wsdl", new WSDLResourceFactoryImpl());
 			resource = rs.createResource(URI.createFileURI(wsdlName));
