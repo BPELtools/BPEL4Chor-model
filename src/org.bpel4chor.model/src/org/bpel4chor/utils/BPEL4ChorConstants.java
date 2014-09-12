@@ -66,5 +66,5 @@ public class BPEL4ChorConstants {
 	public final static String CHOREOGRAPHY_PREFIX_BASE = "cns";
 	
 	/** Default export directory C:\tmp\bpel4chor */
-	public static final String BPEL4CHOR_DEFAULT_WRITE_DIR = "D:\\Arbeit\\Diplom\\tmpout\\bpel4chor";
+	public static final String BPEL4CHOR_DEFAULT_WRITE_DIR = "C:\\temp\\bpel4chor";
 }

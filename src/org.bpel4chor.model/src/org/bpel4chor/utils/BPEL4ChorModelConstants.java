@@ -11,7 +11,7 @@ public class BPEL4ChorModelConstants {
 	public static final boolean DEBUG = false;
 	
 	/** C:\tmp\BPEL4Chor\ **/
-	public static final String DEFAULT_SPLITTING_OUTPUT_DIR = "D:\\Arbeit\\Diplom\\tmpout\\bpel4chor\\";
+	public static final String DEFAULT_SPLITTING_OUTPUT_DIR = "C:\\temp\\bpel4chor\\";
 	
 	public static final String DEFAULT_PREFIX = "tns";
 	
