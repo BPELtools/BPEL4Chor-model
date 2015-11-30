@@ -240,7 +240,7 @@ public class BPEL4ChorWriterTest {
 
 		// create output stream
 		File saveFile = new File(outputDir, process.getName() + "-"
-				+ Calendar.getInstance().getTimeInMillis() + ".pbd");
+				+ Calendar.getInstance().getTimeInMillis() + ".bpel");
 		FileOutputStream outputStream = new FileOutputStream(saveFile);
 
 		// work-around to prevent the Import Exception

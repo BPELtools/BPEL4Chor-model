@@ -117,7 +117,7 @@ public class BPEL4ChorWriter {
 		// write pbd
 		for (Process fragProcess : participant2FragProc.values()) {
 			
-			String pbdFileName = fragProcess.getName() + ".pbd";
+			String pbdFileName = fragProcess.getName() + ".bpel";
 			FileOutputStream procOutputStream = new FileOutputStream(new File(outputDir, pbdFileName));
 			BPEL4ChorWriter.writePBD(fragProcess, procOutputStream);
 			
